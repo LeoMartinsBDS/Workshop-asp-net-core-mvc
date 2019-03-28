@@ -13,6 +13,7 @@ namespace SalesWeb.Models
         public double BaseSalary { get; set; }
         public Department Department { get; set; }
         public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
+        public int DepartmentID { get; set; }
 
         public Seller() { }
 
@@ -38,7 +39,7 @@ namespace SalesWeb.Models
 
         public double TotalSales(DateTime dtInicial, DateTime dtFinal)
         {
-            return Sales.Where(s => s.Date >= dtInicial && s.Date <= dtFinal).Sum(s=> s.Amount);
+            return Sales.Where(s => s.Date >= dtInicial && s.Date <= dtFinal).Sum(s => s.Amount);
         }
     }
 }
